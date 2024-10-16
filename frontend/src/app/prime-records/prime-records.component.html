@@ -1,0 +1,22 @@
+<div id="container" class="container mt-5">
+    <h2 class="text-center mb-4">Registros de Números Primos</h2>
+    <table class="table table-striped table-bordered shadow-lg">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id_consulta</th>
+          <th>Número</th>
+          <th>Es primo</th>
+          <th>Fecha de consulta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{ record.id }}</td>
+          <td>{{ record.number }}</td>
+          <td>{{ record.prime ? 'Sí' : 'No' }}</td>
+          <td class="fecha">{{ formatDate(record.requestDate) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button routerLink="/..">Regresar</button>
+  </div>  

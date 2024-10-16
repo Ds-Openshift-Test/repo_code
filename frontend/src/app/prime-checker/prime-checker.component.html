@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Verificar Número Primo</h1>
+  <form (submit)="onSubmit()">
+    <div class="input-group">
+      <label for="number">Número:</label>
+      <input type="number" [(ngModel)]="number" name="number" required />
+    </div>
+    <div class="button-group">
+      <button type="submit" class="primary-btn">Verificar</button>
+      <button type="button" (click)="clear()" class="secondary-btn">Limpiar</button>
+      <button routerLink="/records" class="secondary-btn">Ver Registros de la BD</button>
+    </div>
+  </form>
+
+  <div class="result" *ngIf="result !== null">
+    <h3>Resultado:</h3>
+    <p *ngIf="result.isPrime">El número {{ result.number }} es primo.</p>
+    <p *ngIf="!result.isPrime">El número {{ result.number }} no es primo.</p>
+  </div>
+
+  <!-- Sección para mostrar la versión y el entorno -->
+  <div class="app-info" *ngIf="version && environment">
+    <h3>Información de la aplicación:</h3>
+    <p><strong>Versión:</strong> {{ version }}</p>
+    <p><strong>Entorno:</strong> {{ environment }}</p>
+  </div>
+</div>

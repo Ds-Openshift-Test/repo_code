@@ -1,0 +1,60 @@
+/* Estilo de la tabla */
+table {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    max-height: 400px; /* Limita la altura de la tabla */
+    display: block; /* Forzamos el comportamiento de bloque */
+    overflow-y: scroll; /* Habilita el desplazamiento vertical */
+}
+
+thead {
+    background-color: #343a40;
+    color: white;
+    position: sticky; /* Mantiene el encabezado fijo */
+    top: 0; /* Encabezado en la parte superior */
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Estilo del botón */
+button {
+    padding: 10px;
+    background-color: #c40000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #7a0101;
+    transform: translateY(-2px);
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 80%; /* Ajusta el ancho máximo del contenedor */
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Encabezado */
+h2 {
+    margin-top: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Celdas de fecha */
+.fecha {
+    width: 350px;
+}
