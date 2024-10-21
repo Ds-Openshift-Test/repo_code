@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-prime-checker',
@@ -17,7 +18,7 @@ export class PrimeCheckerComponent implements OnInit {
 
   ngOnInit() {
     // Obtener la versión y el entorno al cargar el componente
-    this.http.get<any>('http://localhost:8080/api/info')
+    this.http.get<any>(environment.apiUrl)
       .subscribe(
         response => {
           this.version = response.version;
@@ -31,7 +32,7 @@ export class PrimeCheckerComponent implements OnInit {
 
   onSubmit() {
     if (this.number !== null) {
-      this.http.post<any>('http://localhost:8080/api/primes/check', { number: this.number })
+      this.http.post<any>(`${environment.apiUrl}/primes/check`, { number: this.number })
         .subscribe(
           response => {
             this.result = {
