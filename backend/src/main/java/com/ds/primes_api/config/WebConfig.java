@@ -17,7 +17,10 @@ public class WebConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://angular-service-29-project-microservicio.apps.open-shift.digitalsolutions.com:80");
+                registry.addMapping("/**").allowedOrigins("http://angular-service-29-project-microservicio.apps.open-shift.digitalsolutions.com")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
