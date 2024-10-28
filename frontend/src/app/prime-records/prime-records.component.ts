@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-prime-records',
@@ -16,7 +17,7 @@ export class PrimeRecordsComponent implements OnInit {
   }
 
   getRecords() {
-    this.http.get<any[]>('http://localhost:8080/api/primes/records').subscribe(
+    this.http.get<any[]>(`${environment.apiUrl}/api/primes/records`).subscribe(
       response => {
         /*console.log('Registros de la base de datos:', response);*/
         this.records = response;

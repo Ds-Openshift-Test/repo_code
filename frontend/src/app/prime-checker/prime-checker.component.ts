@@ -18,7 +18,7 @@ export class PrimeCheckerComponent implements OnInit {
 
   ngOnInit() {
     // Obtener la versión y el entorno al cargar el componente
-    this.http.get<any>(environment.apiUrl)
+    this.http.get<any>(`${environment.apiUrl}/api/info`)
       .subscribe(
         response => {
           this.version = response.version;
@@ -32,7 +32,7 @@ export class PrimeCheckerComponent implements OnInit {
 
   onSubmit() {
     if (this.number !== null) {
-      this.http.post<any>(`${environment.apiUrl}/primes/check`, { number: this.number })
+      this.http.post<any>(`${environment.apiUrl}/api/primes/check`, { number: this.number })
         .subscribe(
           response => {
             this.result = {
