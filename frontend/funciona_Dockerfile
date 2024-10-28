@@ -1,6 +1,6 @@
 #------------- DockerFile Angular -------------
 
-# Entorno Node-18
+# Etapa 1: Entorno Node-18 para construir la aplicación Angular
 FROM node:18-alpine AS build
 
 # Directorio de trabajo
@@ -14,25 +14,21 @@ RUN npm ci
 RUN npm install -g nodemon
 RUN npm install
 
-# Copiar el resto del codigo de Angular
+# Copiar el resto del código de Angular
 COPY ./ ./
 
-# Compilar la aplicacion
+# Compilar la aplicación
 RUN npm run build
 
-#--------------------- Stage 2 ----------------------------
-
-# Entorno NGINX
+#--------------------- Etapa 2 ----------------------------
+# Entorno NGINX para servir la aplicación
 FROM nginx:alpine
 
-#  Copiar los archivos compilados de Angular
-COPY --from=build /app/dist/* /usr/share/nginx/html
-
-# Copiar archivo de configuracion de NGINX
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Copiar los archivos compilados de Angular
+COPY --from=build /app/dist/prime-checker/browser /usr/share/nginx/html
 
 # Exponer el puerto de escucha
-EXPOSE 80 
+EXPOSE 80
 
 # Ejecutar NGINX
 CMD ["nginx", "-g", "daemon off;"]
