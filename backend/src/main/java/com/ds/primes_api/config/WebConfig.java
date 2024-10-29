@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig {
 
-    @Value("${app.url.frontend}")
+    @Value("${CORS_ALLOWED_ORIGIN}")
     private String corsAllowedOrigin;
 
     @Bean
