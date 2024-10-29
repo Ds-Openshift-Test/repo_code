@@ -25,7 +25,7 @@ public class WebConfig {
                         .allowedOrigins("*")  // Acepta solicitudes desde cualquier origen
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(false);
             }
         };
     }
